@@ -1,0 +1,74 @@
+---
+title: "Incarceration Differences Between Races"
+author: "John Oh Section AF"
+date: "2/25/2022"
+output: html_document
+---
+
+<center> **INFO-201: Technical Foundations of Informatics - The Information School - University of Washington WINTER 2022** </center>
+
+### Introduction 
+<hr/>
+Stories about police brutality and racial profiling flourishes over social media and news sources, and many people, specifically African Americans, are victimized to over-policing and irrational incarcerations. These trends shows a contemporary existence of racial discrimination and its prevalence in today's society. Using the incarceration trends dataset released by Vera Institute of Justice, the infamous trend can be objectively quantified through visuals and numbers. Important variables to consider for this report are prison population disaggregated into 6 different racial groups, including Black, White, AAPI, Latinx, Natives, and other racial groups. These racial prison population, which are collected at the end of of December every year, shows unreasonable discrepancy in incarceration number between each race, especially when it is compared to the total prison population. These variables will be used to show the racial inequality and over-policing effects in the United States.
+
+### Summary Information 
+<hr/> 
+```{r, include = FALSE}
+source("../source/analysis.R")
+```
+
+**County with the greatest difference between black jail population and white jail population in the most recent year:** ```r greatest_difference_year```
+
+**The greatest average prison population between 1988 and 2016 for each race:** 
+    
+    Black: `r sprintf("%6f", black_greatest_prison_average)`
+    
+    White: `r sprintf("%6f", white_greatest_prison_average)`
+    
+    AAPI: `r aapi_greatest_prison_average`
+    
+    Latinx: `r sprintf("%6f", latinx_greatest_prison_average)`
+    
+    Native: `r native_greatest_prison_average`
+    
+    Others: `r other_race_greatest_prison_average`
+    
+**The year with the greatest increase in daily average black jail population between 1985 and 2018:** ```r greatest_increase_black_prison```
+
+**The greatest increase in prison population from 1987 to 1988 (War on Drugs) between races:** Black = ```r sprintf("%5f", greatest_prison_increase)```
+
+**The ratio between black prison population to total prison population in 1988 in the US:** ```r black_prison_total_ratio```%
+
+Values represented above are valuable and necessary to examine the incarceration trend in race. The first value showcases a county with the largest difference between black jail population and white jail population. The county, Cook County, Illinois, happens to have one of the largest jail in the US and a high African American Population, proving states with high crime rates affect racial profiling. Next values are greatest average prison population for each race over the years. Based on these values, black population had the greatest average at 391925.03, showing a correlation between race and incarceration rate.The third value is the year with the greatest increase in daily average black jail population between 1985 and 2018, which was 1988. 1988 was when former President Ronald Reagan passed the Anti-Drug Abuse Act, showing how War on Drugs affected black population in a negative way. The 4th value is the greatest increase in prison population from 1987 to 1988 which was when the Anti-Drug Abuse Act was enacted, and the greatest increase was, again, the Black population at 82090, furthering proving the irrational incrimination of black population during the time. Finally, the final value is the ratio between black prison population to total prison population in 1988 in the US. Prisons in the United States consisted of 43.21% black population, which is an absurd discrepancy compared to other races. 
+
+### Visualizations
+<hr/>
+
+#### Trends Over Time Chart 
+```{r echo = FALSE}
+source("../source/analysis.R")
+chart1
+```
+<br>
+
+Trends over time chart was included to visualize the difference in total prison population of each race in the data over the years. As shown in the data, there is a rapid incline in prison population around 1984, possibly due to the limitation in data collection before. The data clearly shows that black prison population is far greater than any other race and increases in the most rapid rate. Additionally, during 1988 when former President Ronald Reagan declared war on drugs, there is a spike in prison population for all races. This chart allows for a critical analysis of discrepancy in incarceration between races, proving a possible racial discrimination in incarcerations. 
+
+<hr/>
+#### Variable Comparison Chart 
+```{r echo = FALSE}
+source("../source/analysis.R")
+chart2
+```
+<br>
+
+The variable comparison chart was included to compare between years passed and the ratio between black prison population and total prison population in Georgia. Georgia was selected as the state due to its infamous reputation of racial discrimination. This chart's purpose is to show that racially motivated incarceration is continuing to develop as years pass, which is proven by the visualization. In Georgia, the black prison population percentage continued to grow until the late 1990s, and there was a steep incline in 1988 during war on drugs. Even though the ratio is at a declining rate currently, it is still floating around 60% and declining slowly.
+
+<hr/>
+#### Map
+```{r echo = FALSE}
+source("../source/analysis.R")
+us_map
+```
+<br>
+
+The choropleth map was created to show differences in black prison population to total prison population ratio between states. It is to assess which regions have the greatest black incarceration. The common pattern that emerges from this map is that highest ratios are concentrated in southern states. States like Maryland, Alabama, and South Carolina have the greatest black prison population to total prison population ratio. The fact that greater ratios are concentrated in certain regions show that depending on which state and which jurisdictions are applied, there can be a greater impact on racial profiling than others. 
